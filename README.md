@@ -1,141 +1,174 @@
-# Sakai Collaboration and Learning Environment (Sakai CLE)
-
-This is the source code for the Sakai CLE.
-
-The master branch is the most current development release, Sakai 24.
-The other branches are currently or previously supported releases. See below for more information on the release plan and support schedule.
-
-## Building
-
-[![Build Status](https://travis-ci.org/sakaiproject/sakai.svg?branch=master)](https://travis-ci.org/sakaiproject/sakai)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c68908d6bc044e95b453bae7ddcbad4a)](https://www.codacy.com/app/sakaiproject/sakai?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sakaiproject/sakai&amp;utm_campaign=Badge_Grade)
-
-This is the "Mini Quick Start" for more complete steps to get Sakai configured please look at [this guide on the wiki](https://github.com/sakaiproject/sakai/wiki/Quick-Start-from-Source).
-
-To build Sakai you need Java 1.8. Once you have, clone a copy of this repository you can
-build it by running (or `./mvnw install` if you don't have Maven installed):
-```
-mvn install
-```
-
-## Running
-
-Sakai runs on Apache Tomcat 9. Download the latest version from http://tomcat.apache.org and extract the archive.
-*Note: Sakai does not work with Tomcat installed via a package from apt-get, yum or other package managers.*
-
-You **must** configure Tomcat according to the instructions on this page:
-https://sakaiproject.atlassian.net/wiki/spaces/DOC/pages/17310646930/Sakai+21+Install+Guide+Source
-
-When you are done, deploy Sakai to Tomcat:
-```
-mvn clean install sakai:deploy -Dmaven.tomcat.home=/path/to/your/tomcat
-```
-
-Now start Tomcat:
-```
-cd /path/to/your/tomcat/bin
-./startup.sh && tail -f ../logs/catalina.out
-```
-
-Once Sakai has started up (it usually takes around 30 seconds), open your browser and navigate to http://localhost:8080/portal
-
-## Licensing
-
-Sakai is licensed under the [Educational Community License version 2.0](http://opensource.org/licenses/ECL-2.0) 
-
-Sakai is an [Apereo Foundation](http://www.apereo.org) project and follows the Foundation's guidelines and requirements for [Contributor License Agreements](https://www.apereo.org/licensing).
-
-## Contributing
-
-See [our dedicated page](CONTRIBUTING.md) for more information on contributing to Sakai.
-
-## Bugs
-
-For filing bugs against Sakai please use our Jira instance: https://jira.sakaiproject.org/
-
-## Nightly servers 
-For testing out the latest builds go to the [nightly server page](http://nightly2.sakaiproject.org)
-
-## Get in touch
-If you have any questions, please join the Sakai developer mailing list: To subscribe send an email to sakai-dev+subscribe@apereo.org
-
-To see a full list of Sakai email lists and other communication channels, please check out this Sakai wiki page:
-https://confluence.sakaiproject.org/display/PMC/Sakai+email+lists
-
-If you want more immediate response during M-F typical business hours you could try our Slack channels.
-
-https://apereo.slack.com/signup
-
-If you can't find your  "at institution.edu" on the Apereo signup page then send an email requesting access for yourself and your institution either to sakai-qa-planners@apereo.org or sakaicoordinator@apereo.org.
-
-## Community supported versions
-These versions are actively supported by the community.
-
-Sakai 23.0 ([release](http://source.sakaiproject.org/release/23.0/) | [fixes](https://confluence.sakaiproject.org/display/DOC/23.0+Fixes+by+tool) | [notes](https://confluence.sakaiproject.org/display/DOC/Sakai+23+Release+Notes))
-
-Sakai 22.4 ([release](http://source.sakaiproject.org/release/22.4/) | [fixes](https://confluence.sakaiproject.org/display/DOC/22.4+Fixes+by+tool) | [notes](https://confluence.sakaiproject.org/display/DOC/Sakai+22+Release+Notes))
-
-## Previous community versions which are no longer supported
-These versions are no longer supported by the community and will only receive security changes.
-
-Sakai 21.5 ([release](http://source.sakaiproject.org/release/21.5/) | [fixes](https://confluence.sakaiproject.org/display/DOC/21.5+Fixes+by+tool) | [notes](https://confluence.sakaiproject.org/display/DOC/Sakai+21+Release+Notes))
-
-Sakai 20.6 ([release](http://source.sakaiproject.org/release/20.6/) | [fixes](https://confluence.sakaiproject.org/display/DOC/20.6+Fixes+by+tool) | [notes](https://confluence.sakaiproject.org/display/DOC/Sakai+20+Release+Notes))
-
-Sakai 19.6 ([release](http://source.sakaiproject.org/release/19.6/) | [fixes](https://confluence.sakaiproject.org/display/DOC/19.6+Fixes+by+tool) | [notes](https://confluence.sakaiproject.org/display/DOC/Sakai+19+Release+Notes))
-
-Sakai 12.7 ([release](http://source.sakaiproject.org/release/12.7/) | [notes](https://confluence.sakaiproject.org/display/DOC/Sakai+12+Release+Notes))
-
-Sakai 11.4 ([release](http://source.sakaiproject.org/release/11.4/))
-
-For full history of supported releases please see our [release information on confluence](https://confluence.sakaiproject.org/display/DOC/Sakai+Release+Date+list).
-
-## Under Development
-
-[Sakai 23.1](https://confluence.sakaiproject.org/display/REL/Sakai+23+Straw+person) is the current development release of Sakai 23. It is expected to release Q4 2023.
-
-[Sakai 22.5](https://confluence.sakaiproject.org/display/REL/Sakai+22+Straw+person) is the current development release of Sakai 22. It is expected to release Q2 2024.
-
-## Accessibility
-[The Sakai Accessibility Working Group](https://confluence.sakaiproject.org/display/2ACC/Accessibility+Working+Group) is responsible for ensuring that the Sakai framework and its tools are accessible to persons with disabilities. [The Sakai Ra11y plan](https://confluence.sakaiproject.org/display/2ACC/rA11y+Plan) is working towards a VPAT and/or a WCAG2 certification.
-
-CKSource has created a GPL licensed open source version of their [Accessibility Checker](https://cksource.com/ckeditor/services#accessibility-checker) that lets you inspect the accessibility level of content created in CKEditor and immediately solve any accessibility issues that are found. CKEditor is the open source rich text editor used throughout Sakai. While the Accessibility Checker, due to the GPL license, can not be bundled with Sakai, it can be used with Sakai and the A11y group has created [instructions](https://confluence.sakaiproject.org/display/2ACC/CKEditor+Accessibility+Checker) to help you.
-
-## Skinning Sakai
-Documentation on how to alter the Sakai skin (look and feel) is here https://github.com/sakaiproject/sakai/tree/master/library
-
-## Translating Sakai
-
-Translation, internationalization and localization of the Sakai project are coordinated by the Sakai Internationalization/localization community. This community maintains a publicly-accessible report that tracks what percentage of Sakai has been translated into various global languages and dialects. If the software is not yet available in your language, you can translate it with support from the broader Sakai Community to assist you. 
-
-From its inception, the Sakai project has been envisioned and designed for global use. Complete or majority-complete translations of Sakai are available in the languages listed below. 
-
-### Supported languages
-| Locale | Language|
-| ------ | ------ |
-| en_US | English (Default) |
-| ca_ES | Catalán |
-| de_DE | German |
-| es_ES | Español |
-| eu | Euskera |
-| fa_IR | Farsi |
-| fr_FR | Français |
-| hi_IN | Hindi |
-| ja_JP | Japanese |
-| mn | Mongolian |
-| pt_BR | Portuguese (Brazil) |
-| sv_SE | Swedish |
-| tr_TR | Turkish |
-| zh_CN | Chinese |
-| ar | Arabic |
-| ro_RO | Romanian |
-| bg | Bulgarian |
-
-### Other languages
-
-Other languages have been declared legacy in Sakai 19 and have been moved to [Sakai Contrib as language packs](https://github.com/sakaicontrib/legacy-language-packs).
-
-## Community (contrib) tools
-A number of institutions have written additional tools for Sakai that they use in their local installations, but are not yet in an official release of Sakai. These are being collected at https://github.com/sakaicontrib where you will find information about each one. You might find just the thing you are after!
-
-
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content-sakai-collaboration-and-learning-environment-sakai-cle" class="anchor" aria-hidden="true" tabindex="-1" href="#sakai-collaboration-and-learning-environment-sakai-cle"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 协作和学习环境 (Sakai CLE)</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这是 Sakai CLE 的源代码。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">master 分支是最新的开发版本 Sakai 24。其他分支是当前或以前支持的版本。</font><font style="vertical-align: inherit;">有关发布计划和支持计划的更多信息，请参阅下文。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-building" class="anchor" aria-hidden="true" tabindex="-1" href="#building"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">建筑</font></font></h2>
+<p dir="auto"><a href="https://travis-ci.org/sakaiproject/sakai" rel="nofollow"><img src="https://camo.githubusercontent.com/515a340d9996867593956ae8cc4a179fb94bb6ed2f69854436a523f6f49460c8/68747470733a2f2f7472617669732d63692e6f72672f73616b616970726f6a6563742f73616b61692e7376673f6272616e63683d6d6173746572" alt="构建状态" data-canonical-src="https://travis-ci.org/sakaiproject/sakai.svg?branch=master" style="max-width: 100%;"></a>
+<a href="https://www.codacy.com/app/sakaiproject/sakai?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sakaiproject/sakai&amp;utm_campaign=Badge_Grade" rel="nofollow"><img src="https://camo.githubusercontent.com/0a8e0eb3db7914f8c4cebc0041de60012910a68ec5b548740335ea325a2ef544/68747470733a2f2f6170692e636f646163792e636f6d2f70726f6a6563742f62616467652f47726164652f6336383930386436626330343465393562343533626165376464636261643461" alt="科达西徽章" data-canonical-src="https://api.codacy.com/project/badge/Grade/c68908d6bc044e95b453bae7ddcbad4a" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这是“迷你快速入门”，有关配置 Sakai 的更完整步骤，请参阅</font></font><a href="https://github.com/sakaiproject/sakai/wiki/Quick-Start-from-Source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">wiki 上的本指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要构建 Sakai，您需要 Java 1.8。</font><font style="vertical-align: inherit;">完成后，克隆此存储库的副本，您可以通过运行（或者</font></font><code>./mvnw install</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您没有安装 Maven）来构建它：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>mvn install
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="mvn install" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<h2 tabindex="-1" dir="auto"><a id="user-content-running" class="anchor" aria-hidden="true" tabindex="-1" href="#running"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">跑步</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="http://tomcat.apache.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 在 Apache Tomcat 9 上运行。从http://tomcat.apache.org</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载最新版本</font><font style="vertical-align: inherit;">并解压存档。
+</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意：Sakai 不适用于通过 apt-get、yum 或其他包管理器的包安装的 Tomcat。</font></font></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">必须</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根据此页面上的说明配置 Tomcat：
+ </font></font><a href="https://sakaiproject.atlassian.net/wiki/spaces/DOC/pages/17310646930/Sakai+21+Install+Guide+Source" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://sakaiproject.atlassian.net/wiki/spaces/DOC/pages/17310646930/Sakai+21+Install+Guide+Source</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">完成后，将 Sakai 部署到 Tomcat：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>mvn clean install sakai:deploy -Dmaven.tomcat.home=/path/to/your/tomcat
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="mvn clean install sakai:deploy -Dmaven.tomcat.home=/path/to/your/tomcat" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在启动Tomcat：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>cd /path/to/your/tomcat/bin
+./startup.sh &amp;&amp; tail -f ../logs/catalina.out
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="cd /path/to/your/tomcat/bin
+./startup.sh &amp;&amp; tail -f ../logs/catalina.out" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 启动后（通常需要大约 30 秒），打开浏览器并导航至</font></font><a href="http://localhost:8080/portal" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://localhost:8080/portal</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-licensing" class="anchor" aria-hidden="true" tabindex="-1" href="#licensing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><a href="http://opensource.org/licenses/ECL-2.0" rel="nofollow"><font style="vertical-align: inherit;">Sakai 根据教育社区许可证 2.0 版</font></a><font style="vertical-align: inherit;">获得许可</font></font><a href="http://opensource.org/licenses/ECL-2.0" rel="nofollow"><font style="vertical-align: inherit;"></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 是</font></font><a href="http://www.apereo.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apereo 基金会的</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个项目，遵循基金会的</font></font><a href="https://www.apereo.org/licensing" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献者许可协议</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南和要求。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-contributing" class="anchor" aria-hidden="true" tabindex="-1" href="#contributing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅</font></font><a href="/sakaiproject/sakai/blob/master/CONTRIBUTING.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的专用页面，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解有关为 Sakai 做出贡献的更多信息。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-bugs" class="anchor" aria-hidden="true" tabindex="-1" href="#bugs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">虫子</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要提交针对 Sakai 的错误，请使用我们的 Jira 实例：</font></font><a href="https://jira.sakaiproject.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://jira.sakaiproject.org/</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-nightly-servers" class="anchor" aria-hidden="true" tabindex="-1" href="#nightly-servers"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每晚服务器</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要测试最新版本，请访问</font></font><a href="http://nightly2.sakaiproject.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">夜间服务器页面</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-get-in-touch" class="anchor" aria-hidden="true" tabindex="-1" href="#get-in-touch"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">保持联系</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您有任何疑问，请加入 Sakai 开发者邮件列表：要订阅，请发送电子邮件至</font></font><a href="mailto:sakai-dev+subscribe@apereo.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sakai-dev+subscribe@apereo.org</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要查看 Sakai 电子邮件列表和其他沟通渠道的完整列表，请查看此 Sakai wiki 页面：
+ https: </font></font><a href="https://confluence.sakaiproject.org/display/PMC/Sakai+email+lists" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">//confluence.sakaiproject.org/display/PMC/Sakai+email+lists</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您希望在 MF 典型工作时间内获得更即时的响应，您可以尝试我们的 Slack 渠道。</font></font></p>
+<p dir="auto"><a href="https://apereo.slack.com/signup" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://apereo.slack.com/signup</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您在 Apereo 注册页面上找不到您的“attitution.edu”，请发送电子邮件至</font></font><a href="mailto:sakai-qa-planners@apereo.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sakai-qa-planners@apereo.org</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="mailto:sakaicoordinator@apereo.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sakaicoordinator@apereo.org</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ，请求您和您的机构的访问权限。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-community-supported-versions" class="anchor" aria-hidden="true" tabindex="-1" href="#community-supported-versions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区支持的版本</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这些版本得到了社区的积极支持。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 23.0（</font></font><a href="http://source.sakaiproject.org/release/23.0/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/23.0+Fixes+by+tool" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修复</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/Sakai+23+Release+Notes" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注释</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 22.4（</font></font><a href="http://source.sakaiproject.org/release/22.4/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/22.4+Fixes+by+tool" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修复</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/Sakai+22+Release+Notes" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注释</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-previous-community-versions-which-are-no-longer-supported" class="anchor" aria-hidden="true" tabindex="-1" href="#previous-community-versions-which-are-no-longer-supported"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不再支持以前的社区版本</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这些版本不再受到社区支持，只会收到安全更改。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 21.5（</font></font><a href="http://source.sakaiproject.org/release/21.5/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/21.5+Fixes+by+tool" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修复</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/Sakai+21+Release+Notes" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注释</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 20.6（</font></font><a href="http://source.sakaiproject.org/release/20.6/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/20.6+Fixes+by+tool" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修复</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/Sakai+20+Release+Notes" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注释</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 19.6（</font></font><a href="http://source.sakaiproject.org/release/19.6/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/19.6+Fixes+by+tool" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修复</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/Sakai+19+Release+Notes" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注释</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 12.7（</font></font><a href="http://source.sakaiproject.org/release/12.7/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://confluence.sakaiproject.org/display/DOC/Sakai+12+Release+Notes" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注释</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">酒井 11.4（</font></font><a href="http://source.sakaiproject.org/release/11.4/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关受支持版本的完整历史记录，请参阅我们</font></font><a href="https://confluence.sakaiproject.org/display/DOC/Sakai+Release+Date+list" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 confluence 上的版本信息</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-under-development" class="anchor" aria-hidden="true" tabindex="-1" href="#under-development"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正在开发中</font></font></h2>
+<p dir="auto"><a href="https://confluence.sakaiproject.org/display/REL/Sakai+23+Straw+person" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 23.1</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是 Sakai 23 的当前开发版本。预计将于 2023 年第四季度发布。</font></font></p>
+<p dir="auto"><a href="https://confluence.sakaiproject.org/display/REL/Sakai+22+Straw+person" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 22.5</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是 Sakai 22 的当前开发版本。预计将于 2024 年第二季度发布。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-accessibility" class="anchor" aria-hidden="true" tabindex="-1" href="#accessibility"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无障碍</font></font></h2>
+<p dir="auto"><a href="https://confluence.sakaiproject.org/display/2ACC/Accessibility+Working+Group" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 无障碍工作组</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">负责确保 Sakai 框架及其工具可供残疾人使用。</font></font><a href="https://confluence.sakaiproject.org/display/2ACC/rA11y+Plan" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai Ra11y 计划</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正在努力获得 VPAT 和/或 WCAG2 认证。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://cksource.com/ckeditor/services#accessibility-checker" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CKSource 创建了其辅助功能检查器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的 GPL 许可开源版本</font><font style="vertical-align: inherit;">，可让您检查 CKEditor 中创建的内容的辅助功能级别并立即解决发现的任何辅助功能问题。</font><font style="vertical-align: inherit;">CKEditor 是整个 Sakai 中使用的开源富文本编辑器。</font><font style="vertical-align: inherit;">虽然 Accessibility Checker 由于 GPL 许可证而无法与 Sakai 捆绑在一起，但它可以与 Sakai 一起使用，并且 A11y 小组已创建了</font></font><a href="https://confluence.sakaiproject.org/display/2ACC/CKEditor+Accessibility+Checker" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">说明</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来帮助您。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-skinning-sakai" class="anchor" aria-hidden="true" tabindex="-1" href="#skinning-sakai"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">剥皮酒井</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关如何更改 Sakai 皮肤（外观和感觉）的文档位于</font></font><a href="https://github.com/sakaiproject/sakai/tree/master/library"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/sakaiproject/sakai/tree/master/library</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-translating-sakai" class="anchor" aria-hidden="true" tabindex="-1" href="#translating-sakai"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">翻译酒井</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sakai 项目的翻译、国际化和本地化由 Sakai 国际化/本地化社区协调。</font><font style="vertical-align: inherit;">该社区维护着一份可公开访问的报告，跟踪 Sakai 语言被翻译成各种全球语言和方言的百分比。</font><font style="vertical-align: inherit;">如果该软件尚未提供您的语言版本，您可以在更广泛的 Sakai 社区的支持下进行翻译，为您提供帮助。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从一开始，Sakai 项目就被设想和设计为全球使用。</font><font style="vertical-align: inherit;">Sakai 的完整或大部分完整翻译有下列语言版本。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-supported-languages" class="anchor" aria-hidden="true" tabindex="-1" href="#supported-languages"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持的语言</font></font></h3>
+<table>
+<thead>
+<tr>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言环境</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言</font></font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">zh_CN</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">英语（默认）</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ca_ES</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加泰罗尼亚语</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">德_DE</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">德语</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">es_ES</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">西班牙语</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欧洲联盟</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">尤斯克拉</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">公平的</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">波斯语</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">fr_FR</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">法国人</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嗨_IN</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">印地语</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ja_JP</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日本人</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">锰</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">蒙</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pt_BR</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">葡萄牙语（巴西）</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sv_SE</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">瑞典</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tr_TR</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">土耳其</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">zh_CN</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中国人</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阿尔</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阿拉伯</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">罗_RO</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">罗马尼亚语</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">背景</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">保加利亚语</font></font></td>
+</tr>
+</tbody>
+</table>
+<h3 tabindex="-1" dir="auto"><a id="user-content-other-languages" class="anchor" aria-hidden="true" tabindex="-1" href="#other-languages"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他语言</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他语言已在 Sakai 19 中被宣布为遗产，并已</font></font><a href="https://github.com/sakaicontrib/legacy-language-packs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为语言包移至 Sakai Contrib</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-community-contrib-tools" class="anchor" aria-hidden="true" tabindex="-1" href="#community-contrib-tools"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区（贡献）工具</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许多机构已经为 Sakai 编写了在本地安装中使用的附加工具，但尚未包含在 Sakai 的正式版本中。</font><font style="vertical-align: inherit;">这些信息收集在</font></font><a href="https://github.com/sakaicontrib"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/sakaicontrib</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中，您可以在其中找到有关每一项的信息。</font><font style="vertical-align: inherit;">您可能会找到您想要的东西！</font></font></p>
+</article></div>
